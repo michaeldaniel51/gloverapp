@@ -1,8 +1,9 @@
-package com.example.gloverapp;
+package com.example.gloverapp.entities;
+
+import com.example.gloverapp.entities.Location;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 public class Student {
@@ -29,27 +30,28 @@ public class Student {
     @Column(name = "PASSWORD")
     private String password;
 
+    @Column(name = "AGE")
+    private int age;
+
+    @Column(name = "DEPARTMENT")
+    private  String department;
+
     @ManyToOne
     private Location location;
 
-    @OneToMany
-    private List<Phone> phone;
 
-
-
-    public Student(int id, String firstName, String lastName, long phoneNumber, String email, String gender, String password, Location location) {
-        this.id = id;
+    public Student(String firstName, String lastName, long phoneNumber, String email, String gender, String password, int age, String department, Location location) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.gender = gender;
         this.password = password;
+        this.age = age;
+        this.department = department;
         this.location = location;
+
     }
-
-
-
 
 
     public Student() {
@@ -119,6 +121,24 @@ public class Student {
         this.location = location;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+
+
     @Override
     public String toString() {
         return "Student{" +
@@ -129,6 +149,8 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
                 ", password='" + password + '\'' +
+                ", age=" + age +
+                ", department='" + department + '\'' +
                 ", location=" + location +
                 '}';
     }

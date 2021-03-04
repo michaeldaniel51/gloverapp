@@ -1,4 +1,4 @@
-package com.example.gloverapp;
+package com.example.gloverapp.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
