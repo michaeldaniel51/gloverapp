@@ -27,8 +27,8 @@ public class StudentService {
         return students;
     }
 
-    public Optional<Student> getStudentById(int id){
-         Optional<Student> students= studentRepository.findById(id);
+    public Optional<Student> getStudentById(long id) throws Exception {
+         Optional<Student> students= Optional.ofNullable(studentRepository.findById(id).orElseThrow(() -> new Exception("id not found")));
          return students;
     }
 
@@ -36,12 +36,12 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public void updateStudent(Student student,int id){
+    public void updateStudent(Student student,long id){
         studentRepository.save(student);
     }
 
 
-    public void deleteById(int id){
+    public void deleteById(long id){
         studentRepository.deleteById(id);
     }
 
@@ -50,7 +50,7 @@ public class StudentService {
                 .collect(Collectors.toList());
      }
 
-     public List<Student>getStudentByLocationId(String id){
+     public List<Student>getStudentByLocationId(long id){
         return  studentRepository.findByLocationId(id);
      }
 

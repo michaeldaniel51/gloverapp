@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface LocationRepository extends CrudRepository <Location,String> {
-
-    Optional<Location> findByName(String name);
+public interface LocationRepository extends CrudRepository <Location,Long> {
 
 }

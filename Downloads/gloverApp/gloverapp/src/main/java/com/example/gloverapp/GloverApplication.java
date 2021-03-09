@@ -38,10 +38,10 @@ public class GloverApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		Location location1 = new Location("1", "abuja");
-		Location location2 = new Location("2", "abia");
-		Location location3 = new Location("3", "abia");
-		Location location4 = new Location("1", "lekki");
+		Location location1 = new Location(15, "abuja");
+		Location location2 = new Location(16, "abia");
+		Location location3 = new Location(17, "abia");
+		Location location4 = new Location(18, "lekki");
 
 
 		List<Location> l = Arrays.asList(location1, location2, location3, location4);
@@ -49,10 +49,10 @@ public class GloverApplication implements CommandLineRunner {
 		locationRepository.saveAll(l);
 		System.out.println(l);
 
-		Student student1 = new Student("daniel", "michael", 0706, "danny@gmail.com", "male", "1111", 12, "bus-admin", new Location("1", "lagos"));
-		Student student2 = new Student("mary", "kay", 0707, "mary@gmail.com", "female", "2222", 13, "economics", new Location("2", "abia"));
-		Student student3 = new Student("john", "moss", 0705, "john@gmail.com", "male", "3333", 15, "science", new Location("2", "abia"));
-		Student student4 = new Student("grace", "love", 0703, "grace@gmail.com", "female", "4444", 16, "agric", new Location("1", "lagos"));
+		Student student1 = new Student("daniel", "michael", 0706, "danny@gmail.com", "male", "1111", 12, "bus-admin",location1);
+		Student student2 = new Student("mary", "kay", 0707, "mary@gmail.com", "female", "2222", 13, "economics",location2);
+		Student student3 = new Student("john", "moss", 0705, "john@gmail.com", "male", "3333", 15, "science",location3);
+		Student student4 = new Student("grace", "love", 0703, "grace@gmail.com", "female", "4444", 16, "agric",location4);
 
 
 		List<Student> s = Arrays.asList(student1, student2, student3, student4);

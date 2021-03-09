@@ -1,8 +1,10 @@
 package com.example.gloverapp.controllers;
 
 import com.example.gloverapp.entities.Status;
+import com.example.gloverapp.entities.Student;
 import com.example.gloverapp.services.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +17,7 @@ public class StatusController {
     private StatusService statusService;
 
     @GetMapping("/status")
-    public List<Status> getAllStatus(){
+    public List<Status> getAllStatus(Model model){
       return statusService.getAllStatus();
 
     }

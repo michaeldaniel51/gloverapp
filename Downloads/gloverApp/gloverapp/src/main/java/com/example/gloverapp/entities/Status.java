@@ -17,7 +17,6 @@ public class Status {
     private LocalDate timeStatusPosted = LocalDate.now();
 
     @ManyToOne
-    @JoinColumn(name = "STUDENTS_STATUS")
     private Student student;
 
     public Status(String id, String post, LocalDate timeStatusPosted, Student student) {

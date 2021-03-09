@@ -10,7 +10,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @Column(name = "FIRSTNAME")
     private String firstName;
@@ -40,7 +40,7 @@ public class Student {
     private Location location;
 
 
-    public Student(String firstName, String lastName, long phoneNumber, String email, String gender, String password, int age, String department, Location location) {
+    public Student(String firstName, String lastName, long phoneNumber, String email, String gender, String password, int age, String department,Location location) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -57,11 +57,11 @@ public class Student {
     public Student() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -113,13 +113,13 @@ public class Student {
         this.password = password;
     }
 
-    public Location getLocation() {
+ /*   public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
-    }
+    } */
 
     public int getAge() {
         return age;
@@ -151,7 +151,7 @@ public class Student {
                 ", password='" + password + '\'' +
                 ", age=" + age +
                 ", department='" + department + '\'' +
-                ", location=" + location +
+             //   ", location=" + location +
                 '}';
     }
 }

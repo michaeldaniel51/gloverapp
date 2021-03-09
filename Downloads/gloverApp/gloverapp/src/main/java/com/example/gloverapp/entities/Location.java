@@ -2,35 +2,33 @@ package com.example.gloverapp.entities;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.ServiceLoader;
 
 @Entity
 public class Location {
 
     @Id
     @Column(name = "LOCATION_ID")
-    private String id;
+    private long id;
 
     @Column(name = "LOCATION_NAME")
-    private  String name;
+    private String name;
 
 
-    public Location(String id, String name) {
+    public Location(long id, String name) {
         this.id = id;
         this.name = name;
-
     }
-
 
 
     public Location() {
     }
 
-
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -43,12 +41,12 @@ public class Location {
     }
 
 
-
     @Override
     public String toString() {
         return "Location{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+
     }
 }

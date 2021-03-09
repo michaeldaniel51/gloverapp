@@ -4,6 +4,7 @@ import com.example.gloverapp.entities.Location;
 import com.example.gloverapp.entities.Student;
 import com.example.gloverapp.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,35 +18,37 @@ public class LocationController {
     private LocationService locationService;
 
 
-    @GetMapping("/location")
-    private List<Location> getAllLocation(){
-        return locationService.getAllLocation();
+    @GetMapping("/locations")
+    private List<Location> getAllLocation(Model model){
+      return locationService.getAllLocation();
     }
 
-    @PostMapping("/Location")
+    @PostMapping("/locations")
     public void addLocation(@RequestBody Location location){
         locationService.addLocation(location);
     }
 
-    @DeleteMapping("/location/{id}")
-    public void deleteLocation(@PathVariable String id){
-        locationService.deleteLocation(id);
 
+    /**
+     * location cannot be deleted by id
+     * because it has a relationship with the Student entity
+     * @param id
+     */
+    @DeleteMapping("/locations/{id}")
+    public void deleteLocation(@PathVariable long id){
+        locationService.deleteLocation(id);
     }
 
-    @PutMapping("/location/{id}")
-    public void updateLocation(@RequestBody Location location,@PathVariable String id){
+    @PutMapping("/locations/{id}")
+    public void updateLocation(@RequestBody Location location,@PathVariable long id){
         locationService.updateLocation(location,id);
     }
 
-    @GetMapping("/location/{id}")
-    public Optional<Location> getById(@PathVariable String id){
+    @GetMapping("/locations/{id}")
+    public Optional<Location> getById(@PathVariable long id){
        return locationService.getById(id);
     }
 
-    @GetMapping("/location/{name}")
-    public Optional<Location> getLocationByName(@PathVariable String name){
-        return locationService.getLocationByName(name);
-    }
+
 
 }

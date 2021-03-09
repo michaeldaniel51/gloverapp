@@ -24,7 +24,7 @@ public class LocationService {
 
         return location;
     }
-    public Optional<Location> getById(String id){
+    public Optional<Location> getById(long id){
         Optional<Location> location = locationRepository.findById(id);
         return location;
     }
@@ -35,16 +35,15 @@ public class LocationService {
 
     }
 
-    public void deleteLocation(String id){
+    public void deleteLocation(long id){
         locationRepository.deleteById(id);
+
     }
 
-    public void updateLocation(Location location,String id){
+    public void updateLocation(Location location,long id){
         locationRepository.save(location);
     }
 
-    public Optional<Location> getLocationByName(String name){
-        return locationRepository.findByName(name);
-    }
+    
 
 }
