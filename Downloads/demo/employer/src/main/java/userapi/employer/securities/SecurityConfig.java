@@ -34,8 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
      @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+         http.headers().frameOptions().disable();
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/user/login","/user/register","/swagger-ui/**").permitAll()
+
+                .authorizeRequests().antMatchers("/user/login","/user/register","/swagger-ui/**","/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -47,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure (WebSecurity web) throws Exception{
          web.ignoring().antMatchers("/v2/api-docs","/configuration/ui","/swagger-resources/**",
-                 "/configuration/security","/configuration/**","/swagger-ui.html","/webjars/**", "/swagger-ui/**");
+                 "/configuration/security","/configuration/**","/swagger-ui.html","/webjars/**", "/swagger-ui/**", "/h2-console");
 
 
     }

@@ -45,5 +45,10 @@ public class MusicController {
 
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllMusic(){
+        return ResponseEntity.ok(musicService.getAllMusic());
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package userapi.employer;
+package userapi.employer.configs;
 
 
 import org.springframework.context.annotation.Bean;
@@ -22,9 +22,9 @@ import java.util.List;
 
 
 @Configuration
-    @EnableSwagger2
-    @Import(SpringDataRestConfiguration.class)
-    public class SwaggerConfig {
+@EnableSwagger2
+@Import(SpringDataRestConfiguration.class)
+public class SwaggerConfig {
 
         /**
          * @return docket
@@ -39,7 +39,7 @@ import java.util.List;
                     .securityContexts(Collections.singletonList(securityContext()))
                     .securitySchemes(Collections.singletonList(apiKey()))
                     .apiInfo(new ApiInfoBuilder()
-                            .title("Backend API")
+                            .title("Music Manager")
                             .description("A library that stores music")
                             .contact(new Contact("Daniel Michael","","daniel07062902851@gmail.com"))
                             .build());

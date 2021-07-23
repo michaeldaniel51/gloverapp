@@ -27,11 +27,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "USERNAME",length = 30)
+    @Column(name = "USERNAME")
     @NotNull(message = "username is required ")
     private String username;
 
-    @Column(name = "PASSWORD",length = 20)
+    @Column(name = "PASSWORD")
     @NotNull(message = "password is required")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

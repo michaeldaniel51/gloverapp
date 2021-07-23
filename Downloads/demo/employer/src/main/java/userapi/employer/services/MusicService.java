@@ -60,7 +60,6 @@ public class MusicService {
 
 
     public List<Music> getAllMusic(){
-
         List<Music> music = musicRepository.findAll().stream().collect(Collectors.toList());
         return music;
     }

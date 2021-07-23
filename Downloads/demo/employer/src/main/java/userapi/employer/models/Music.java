@@ -31,7 +31,6 @@ public class Music {
 
     @Column(name = "ALBUM")
     private String album;
-
     @Enumerated(EnumType.STRING)
     private MusicGenre genre;
 
@@ -39,6 +38,7 @@ public class Music {
     private LocalDateTime dateReleased = LocalDateTime.now();
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
 
