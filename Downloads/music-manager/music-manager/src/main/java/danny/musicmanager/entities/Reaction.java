@@ -27,4 +27,7 @@ public class Reaction {
 
     @ManyToOne
     private Song song;
+
+    @ManyToOne
+    private Album album;
 }

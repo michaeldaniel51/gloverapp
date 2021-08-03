@@ -78,7 +78,7 @@ public class SongService {
         return song;
     }
 
-    public List<Song> getByUser(){
+    public List<Song> findUser(){
         User user = securityService.authenticatedUser();
         return songRepository.findByUser(user);
 

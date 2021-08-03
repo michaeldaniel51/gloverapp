@@ -22,8 +22,7 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -79,9 +78,4 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
 
     }
-
-
-
-
-
 }

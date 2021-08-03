@@ -41,13 +41,21 @@ public class ReactionService {
         return reaction;
     }
 
-    public List<Reaction> getByUser(){
+    public List<Reaction> findUser(){
         User user = securityService.authenticatedUser();
         return reactionRepository.findByUser(user);
 
     }
     public Reaction findReactionById(int id) {
         return reactionRepository.findById(id).orElseThrow();
+    }
+
+
+    public List<Reaction> findReactionBySong(int id){
+
+       return reactionRepository.findBySong(songRepository.findById(id).orElseThrow());
+
+
     }
 
 }

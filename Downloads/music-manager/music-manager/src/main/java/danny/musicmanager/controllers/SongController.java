@@ -2,6 +2,7 @@ package danny.musicmanager.controllers;
 
 
 import danny.musicmanager.entities.Comment;
+import danny.musicmanager.entities.Reaction;
 import danny.musicmanager.entities.Song;
 import danny.musicmanager.services.SongService;
 import lombok.RequiredArgsConstructor;
@@ -55,7 +56,7 @@ public class SongController {
 
     @GetMapping("/user")
     private ResponseEntity<?> getByUser (){
-        return ResponseEntity.ok(songService.getByUser());
+        return ResponseEntity.ok(songService.findUser());
 
     }
 
@@ -73,7 +74,13 @@ public class SongController {
 
     }
 
+    @PostMapping("/reaction/{id}")
+    public ResponseEntity<?> reactToSong(@PathVariable int id, @RequestBody Reaction reaction){
 
+        return ResponseEntity.ok().body(songService.reactionOnSong(id,reaction));
+
+
+    }
 
 
 

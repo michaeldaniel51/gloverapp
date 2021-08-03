@@ -31,11 +31,17 @@ public class UserJwtAuthorizationFilter extends BasicAuthenticationFilter {
 
         String header = req.getHeader("Authorization");
 
+
+        System.out.println("str=art");
+
         if (header == null || !header.startsWith("Bearer ")){
 
+            chain.doFilter(req, res);
             return;
 
         }
+
+        System.out.println("end");
 
         UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
 

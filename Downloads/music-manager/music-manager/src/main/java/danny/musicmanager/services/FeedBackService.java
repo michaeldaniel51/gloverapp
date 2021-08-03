@@ -24,7 +24,7 @@ public class FeedBackService {
     }
 
 
-    public void deleteReactionById(int id){
+    public void deleteFeedBackById(int id){
 
         feedBackRepository.deleteById(id);
 
@@ -35,7 +35,7 @@ public class FeedBackService {
         return feedBacks;
     }
 
-    public List<FeedBack> getByUser(){
+    public List<FeedBack> findUser(){
         User user = securityService.authenticatedUser();
         return feedBackRepository.findByUser(user);
 

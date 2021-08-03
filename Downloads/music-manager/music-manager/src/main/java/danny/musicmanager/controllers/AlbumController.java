@@ -3,6 +3,7 @@ package danny.musicmanager.controllers;
 
 import danny.musicmanager.entities.Album;
 import danny.musicmanager.entities.Comment;
+import danny.musicmanager.entities.Reaction;
 import danny.musicmanager.services.AlbumService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class AlbumController {
         return ResponseEntity.ok(albumService.saveAlbum(album));
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<?> getAllAlbum() {
         return ResponseEntity.ok(albumService.findAllAlbum());
     }
@@ -40,15 +41,22 @@ public class AlbumController {
 
     }
 
-
     @PostMapping("/comment/{id}")
     public ResponseEntity<?> commentOnAlbum(@PathVariable int id,@RequestBody Comment comment){
 
         return ResponseEntity.ok().body(albumService.CommentOnAlbum(id,comment));
 
+    }
+    @GetMapping("/album/{id}")
+    public ResponseEntity<?> reactToAlbum(@PathVariable int id, @RequestBody Reaction reaction) {
 
+        return ResponseEntity.ok().body(albumService.reactionOnAlbum(id,reaction));
 
     }
 
+    @GetMapping("/user")
+    public ResponseEntity<?> getTheUserThatAddedAlbum(){
+        return ResponseEntity.ok().body(albumService.findUser());
+    }
 
 }

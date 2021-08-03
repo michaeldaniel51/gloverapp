@@ -34,6 +34,6 @@ public class Song {
     @ManyToOne
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user",orphanRemoval = true,cascade = CascadeType.ALL)
     private List<Reaction> reaction;
 }

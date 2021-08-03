@@ -2,6 +2,7 @@ package danny.musicmanager.services;
 
 
 import danny.musicmanager.entities.Comment;
+import danny.musicmanager.entities.User;
 import danny.musicmanager.repositories.AlbumRepository;
 import danny.musicmanager.repositories.CommentRepository;
 import danny.musicmanager.repositories.SongRepository;
@@ -33,12 +34,12 @@ public class CommentService {
 
     }
 
-    public List<Comment> getCommentBySong(int songId) {
+    public List<Comment> findCommentBySong(int songId) {
         return commentRepository.findBySong(songRepository.findById(songId).orElseThrow());
     }
 
 
-    public List<Comment> getCommentByAlbum(int albumId){
+    public List<Comment> findCommentOnAlbum(int albumId){
 
         return commentRepository.findByAlbum(albumRepository.findById(albumId).orElseThrow());
 
@@ -55,5 +56,11 @@ public class CommentService {
 
         return commentRepository.findById(id).get();
 
+    }
+
+    public List<Comment>findUser(){
+
+        User user = securityService.authenticatedUser();
+        return commentRepository.findByUser(user);
     }
 }

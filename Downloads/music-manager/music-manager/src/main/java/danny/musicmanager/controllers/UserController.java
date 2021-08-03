@@ -1,29 +1,25 @@
 package danny.musicmanager.controllers;
 
 
-import danny.musicmanager.entities.Song;
 import danny.musicmanager.entities.User;
-import danny.musicmanager.services.SongService;
 import danny.musicmanager.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/users")
+@RequestMapping("users")
 public class UserController {
 
     private final UserService userService;
 
-
-
     @PostMapping
     public ResponseEntity<?> newUser(@Valid @RequestBody User user){
 
+        System.out.println("controller");
         return ResponseEntity.ok().body(userService.createUser(user));
     }
 
